@@ -1,0 +1,561 @@
+{
+    "version": 2,
+    "updated_at": "2026-09-19",
+    "notes": [
+        "Daftar bahan aktif diselaraskan dengan rekomendasi perawatan terbaru pada aplikasi.",
+        "Field recommended_for digunakan untuk menentukan kelas penyakit/kondisi yang relevan.",
+        "Bahan aktif dengan recommended_for kosong tidak dimaksudkan sebagai rekomendasi utama pada alur saat ini.",
+        "Dosis numerik tidak ditampilkan secara umum; aplikasi mengarahkan pengguna untuk mengikuti label produk terdaftar untuk tanaman cabai."
+    ],
+    "ingredients": [
+        {
+            "id": "chlorothalonil",
+            "name": "Chlorothalonil",
+            "type": "Fungisida Kontak",
+            "type_color": "fungicide",
+            "mechanism": "Menghambat enzim dan proses pernapasan sel jamur dari luar jaringan. Bekerja sebagai pelindung (protektif) di permukaan daun sehingga mencegah spora jamur berkecambah.",
+            "targets": [
+                "Cercospora spp.",
+                "Alternaria spp.",
+                "Botrytis cinerea",
+                "Phytophthora spp."
+            ],
+            "application": "Aplikasikan sesuai label pada saat gejala awal atau sebagai perlindungan preventif. Pastikan seluruh permukaan daun terjangkau dan gunakan sebagai bagian dari rotasi bahan aktif.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Gunakan APD (masker, sarung tangan, kacamata). Hindari menghirup uap semprotan. Berbahaya bagi organisme perairan.",
+            "note": "Fungisida kontak bekerja terutama sebagai pelindung pada permukaan daun. Rotasikan dengan bahan aktif berbeda sesuai label dan program pengendalian.",
+            "icon_type": "fungicide",
+            "recommended_for": [
+                "cercospora_leaf_spot",
+                "white_spot"
+            ],
+            "recommendation_role": "kontak_pilihan_awal",
+            "recommendation_context": "Bercak Daun Serkospora sebagai fungisida kontak pilihan awal; pada Bercak Putih hanya bila penyebab terkonfirmasi sebagai embun tepung dan produk berlabel sesuai."
+        },
+        {
+            "id": "mancozeb",
+            "name": "Mancozeb",
+            "type": "Fungisida Kontak Spektrum Luas",
+            "type_color": "fungicide",
+            "mechanism": "Mengganggu beberapa proses biokimia sel jamur secara bersamaan (multi-site inhibitor). Karena menyerang banyak target sekaligus, risiko timbulnya resistensi jamur sangat rendah.",
+            "targets": [
+                "Cercospora spp.",
+                "Phytophthora spp.",
+                "Alternaria spp.",
+                "Pythium spp."
+            ],
+            "application": "Gunakan saat gejala awal atau sebagai tindakan protektif. Aplikasikan merata pada permukaan daun dan ikuti interval pada label.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Gunakan masker dan sarung tangan saat mencampur dan menyemprot. Mengandung senyawa Etilen Tiourea (ETU), hindari kontak berulang dalam jangka panjang.",
+            "note": "Digunakan sebagai fungisida kontak dan bagian dari strategi rotasi bahan aktif.",
+            "icon_type": "fungicide",
+            "recommended_for": [
+                "cercospora_leaf_spot"
+            ],
+            "recommendation_role": "kontak_pilihan_awal",
+            "recommendation_context": "Bercak Daun Serkospora sebagai fungisida kontak pilihan awal."
+        },
+        {
+            "id": "difenoconazole",
+            "name": "Difenoconazole",
+            "type": "Fungisida Sistemik (Triazole)",
+            "type_color": "fungicide",
+            "mechanism": "Menghambat biosintesis ergosterol, yaitu komponen utama dinding sel jamur. Bekerja sistemik (masuk dan berpindah di dalam jaringan tanaman), sehingga bisa mengendalikan penyakit yang sudah terlanjur menginfeksi daun.",
+            "targets": [
+                "Cercospora spp.",
+                "Alternaria spp.",
+                "Oidium spp. (Embun Tepung)",
+                "Colletotrichum spp."
+            ],
+            "application": "Gunakan sesuai label ketika gejala awal muncul atau saat kondisi mendukung perkembangan penyakit. Dapat menjadi bagian dari rotasi dengan fungisida kontak.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Hindari paparan pada mata. Jauhkan dari sumber air dan tidak boleh menyemprot saat angin kencang.",
+            "note": "Untuk aplikasi pada Bercak Putih, gunakan hanya setelah penyebab terkonfirmasi mengarah ke embun tepung.",
+            "icon_type": "fungicide",
+            "recommended_for": [
+                "cercospora_leaf_spot",
+                "white_spot"
+            ],
+            "recommendation_role": "sistemik",
+            "recommendation_context": "Bercak Daun Serkospora saat gejala tetap berkembang/untuk rotasi; Bercak Putih bila penyebab terkonfirmasi sebagai embun tepung."
+        },
+        {
+            "id": "propineb",
+            "name": "Propineb",
+            "type": "Fungisida Kontak (Dithiocarbamate)",
+            "type_color": "fungicide",
+            "mechanism": "Mengganggu beberapa enzim sel jamur dari sisi luar (kontak). Spektrum pengendaliannya luas dan risiko resistensi rendah karena menyerang banyak titik metabolisme jamur.",
+            "targets": [
+                "Cercospora spp.",
+                "Phytophthora spp.",
+                "Alternaria spp.",
+                "Penyakit bercak daun berbasis jamur"
+            ],
+            "application": "Tidak termasuk rekomendasi utama pada panduan perawatan aplikasi saat ini. Jika tetap tersedia sebagai referensi bahan aktif, tampilkan hanya sebagai informasi tambahan dan selalu ikuti label produk.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Gunakan masker dan sarung tangan. Cuci tangan setelah penggunaan.",
+            "note": "Jangan ditampilkan sebagai rekomendasi utama kecuali ada dasar rujukan dan kebutuhan lapangan yang sesuai.",
+            "icon_type": "fungicide",
+            "recommended_for": [],
+            "recommendation_role": "tambahan_bukan_rekomendasi_utama",
+            "recommendation_context": "Tidak digunakan sebagai rekomendasi utama pada panduan aplikasi saat ini."
+        },
+        {
+            "id": "azoxystrobin",
+            "name": "Azoxystrobin",
+            "type": "Fungisida Sistemik (Strobilurin)",
+            "type_color": "fungicide",
+            "mechanism": "Menghambat respirasi sel jamur pada rantai transpor elektron mitokondria. Bersifat sistemik dan dapat berpindah di dalam jaringan tanaman (translaminasi), memberikan perlindungan dari kedua sisi daun.",
+            "targets": [
+                "Cercospora spp.",
+                "Oidium spp.",
+                "Colletotrichum spp.",
+                "Phytophthora spp."
+            ],
+            "application": "Gunakan sesuai label sebagai tindakan preventif atau kuratif awal dan lakukan rotasi dengan kelompok bahan aktif non-strobilurin.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Sangat berbahaya bagi ikan dan organisme air. Jangan mencuci peralatan semprot di dekat sungai atau kolam.",
+            "note": "Untuk Bercak Putih, gunakan hanya bila penyebab terkonfirmasi sebagai embun tepung.",
+            "icon_type": "fungicide",
+            "recommended_for": [
+                "cercospora_leaf_spot",
+                "white_spot"
+            ],
+            "recommendation_role": "sistemik_rotasi",
+            "recommendation_context": "Bercak Daun Serkospora sebagai bahan aktif rotasi; Bercak Putih bila penyebab terkonfirmasi sebagai embun tepung."
+        },
+        {
+            "id": "tebuconazole",
+            "name": "Tebuconazole",
+            "type": "Fungisida Sistemik (Triazole)",
+            "type_color": "fungicide",
+            "mechanism": "Menghambat sintesis ergosterol pada membran sel jamur, merusak struktur dan permeabilitas sel sehingga jamur tidak dapat berkembang biak.",
+            "targets": [
+                "Cercospora spp.",
+                "Fusarium spp.",
+                "Alternaria spp.",
+                "Rhizoctonia spp."
+            ],
+            "application": "Gunakan sesuai label untuk pengendalian embun tepung bila penyebab Bercak Putih telah terkonfirmasi.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Klasifikasi toksisitas sedang. Gunakan masker dan pelindung mata.",
+            "note": "Diposisikan sebagai salah satu pilihan bahan aktif sistemik untuk embun tepung.",
+            "icon_type": "fungicide",
+            "recommended_for": [
+                "white_spot"
+            ],
+            "recommendation_role": "sistemik",
+            "recommendation_context": "Bercak Putih bila penyebab terkonfirmasi sebagai embun tepung."
+        },
+        {
+            "id": "hexaconazole",
+            "name": "Hexaconazole",
+            "type": "Fungisida Sistemik (Triazole)",
+            "type_color": "fungicide",
+            "mechanism": "Menghambat biosintesis ergosterol pada sel jamur. Bersifat sistemik dengan aktivitas kuratif (mengobati) dan eradikatif (membasmi) penyakit yang sudah terlanjur menginfeksi.",
+            "targets": [
+                "Oidium spp. (Embun Tepung)",
+                "Cercospora spp.",
+                "Sclerotinia spp."
+            ],
+            "application": "Gunakan sesuai label untuk pengendalian embun tepung bila penyebab Bercak Putih telah terkonfirmasi.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Gunakan APD lengkap. Simpan di tempat yang tidak terjangkau anak-anak.",
+            "note": "Tidak digunakan hanya berdasarkan label visual 'Bercak Putih' tanpa konfirmasi penyebab.",
+            "icon_type": "fungicide",
+            "recommended_for": [
+                "white_spot"
+            ],
+            "recommendation_role": "sistemik",
+            "recommendation_context": "Bercak Putih bila penyebab terkonfirmasi sebagai embun tepung."
+        },
+        {
+            "id": "sulfur_wp",
+            "name": "Sulfur (Belerang) WP",
+            "type": "Fungisida Kontak Organik",
+            "type_color": "fungicide",
+            "mechanism": "Sulfur bekerja dengan cara mengganggu metabolisme sel jamur dan menghambat proses perkecambahan spora. Merupakan bahan aktif alami dan salah satu fungisida tertua yang masih efektif digunakan.",
+            "targets": [
+                "Oidium spp. (Embun Tepung / Powdery Mildew)",
+                "Tungau (Phytophagous mites)"
+            ],
+            "application": "Pada dugaan embun tepung dengan serangan ringan, dapat digunakan sesuai label sebagai pilihan kontak/pendamping. Hindari aplikasi saat kondisi sangat panas.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "JANGAN dicampurkan dengan minyak hortikultura atau pestisida berbasis minyak lainnya (dapat membakar daun). Jangan aplikasikan saat cuaca sangat panas.",
+            "note": "Jangan dicampur dengan bahan berbasis minyak kecuali label produk secara spesifik mengizinkan.",
+            "icon_type": "organic",
+            "recommended_for": [
+                "white_spot"
+            ],
+            "recommendation_role": "kontak_pendamping",
+            "recommendation_context": "Bercak Putih bila penyebab terkonfirmasi sebagai embun tepung; dapat menjadi opsi pendamping pada serangan ringan."
+        },
+        {
+            "id": "abamectin",
+            "name": "Abamectin",
+            "type": "Insektisida / Akarisida (Makrolida)",
+            "type_color": "insecticide",
+            "mechanism": "Mengganggu sistem syaraf serangga dan tungau dengan cara mencegah transmisi sinyal antar sel saraf (memblokir kanal ion klorida). Efektif membunuh larva, nimfa, dan imago hama sasaran.",
+            "targets": [
+                "Kutu Kebul (Bemisia tabaci)",
+                "Tungau merah / Tetranychus spp.",
+                "Thrips",
+                "Berbagai jenis kutu daun (Aphid)"
+            ],
+            "application": "Untuk Virus Keriting, gunakan hanya untuk pengendalian hama vektor yang menjadi sasaran produknya, terutama thrips, sesuai label. Aplikasikan ke bagian tanaman yang menjadi tempat hama.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Sangat toksik bagi lebah dan organisme perairan. Jangan menyemprot tanaman yang sedang berbunga. Gunakan APD lengkap.",
+            "note": "Tidak menyembuhkan virus. Fokusnya adalah mengurangi hama/vektor dan menekan penyebaran.",
+            "icon_type": "insecticide",
+            "recommended_for": [
+                "curl_virus",
+                "white_spot"
+            ],
+            "recommendation_role": "pengendali_vektor_hama",
+            "recommendation_context": "Virus Keriting untuk membantu mengendalikan vektor/hama seperti thrips; Bercak Putih hanya bila hasil pemeriksaan lapangan mengarah pada hama pengisap yang sesuai."
+        },
+        {
+            "id": "imidacloprid",
+            "name": "Imidacloprid",
+            "type": "Insektisida Sistemik (Neonicotinoid)",
+            "type_color": "insecticide",
+            "mechanism": "Bekerja secara sistemik (diserap akar/daun masuk ke dalam jaringan tanaman). Meniru dan memblokir reseptor asetilkolin pada sistem saraf serangga sehingga menyebabkan kelumpuhan dan kematian.",
+            "targets": [
+                "Kutu Kebul (Bemisia tabaci)",
+                "Aphid (Kutudaun)",
+                "Thrips",
+                "Wereng"
+            ],
+            "application": "Gunakan untuk pengendalian hama pengisap/vektor yang menjadi sasaran produk, sesuai label dan ketentuan setempat.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Berbahaya bagi lebah madu. DILARANG digunakan saat tanaman sedang berbunga. Gunakan sarung tangan dan masker.",
+            "note": "Tidak menyembuhkan Virus Keriting; penggunaannya ditujukan pada pengendalian vektor.",
+            "icon_type": "insecticide",
+            "recommended_for": [
+                "curl_virus"
+            ],
+            "recommendation_role": "pengendali_vektor_hama",
+            "recommendation_context": "Virus Keriting untuk membantu mengendalikan vektor/hama pengisap; bukan untuk menyembuhkan virus."
+        },
+        {
+            "id": "thiamethoxam",
+            "name": "Thiamethoxam",
+            "type": "Insektisida Sistemik (Neonicotinoid)",
+            "type_color": "insecticide",
+            "mechanism": "Seperti imidacloprid, bekerja sistemik dengan memblokir reseptor nikotinik asetilkolin pada serangga. Penyerapan ke dalam tanaman berlangsung cepat dan dapat melalui daun maupun akar.",
+            "targets": [
+                "Kutu Kebul (Bemisia tabaci)",
+                "Kutudaun (Aphid)",
+                "Thrips",
+                "Lalat putih"
+            ],
+            "application": "Tidak termasuk rekomendasi utama pada panduan perawatan aplikasi saat ini. Jika tetap tersedia sebagai referensi bahan aktif, tampilkan hanya sebagai informasi tambahan dan selalu ikuti label produk.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Sangat berbahaya bagi lebah. Hindari penggunaan saat tanaman berbunga. Berbahaya bagi organisme akuatik.",
+            "note": "Jangan ditampilkan sebagai rekomendasi utama kecuali ada dasar rujukan dan kebutuhan lapangan yang sesuai.",
+            "icon_type": "insecticide",
+            "recommended_for": [],
+            "recommendation_role": "tambahan_bukan_rekomendasi_utama",
+            "recommendation_context": "Tidak termasuk pilihan utama pada panduan aplikasi saat ini."
+        },
+        {
+            "id": "diafenthiuron",
+            "name": "Diafenthiuron",
+            "type": "Insektisida / Akarisida (Tiourea)",
+            "type_color": "insecticide",
+            "mechanism": "Menghambat proses respirasi mitokondria pada serangga dan tungau, sehingga hama kehabisan energi dan mati. Aktif terhadap semua stadium hama (telur, larva, imago).",
+            "targets": [
+                "Kutu Kebul (Bemisia tabaci)",
+                "Tungau",
+                "Thrips",
+                "Ulat penggulung daun"
+            ],
+            "application": "Tidak termasuk rekomendasi utama pada panduan perawatan aplikasi saat ini. Jika tetap tersedia sebagai referensi bahan aktif, tampilkan hanya sebagai informasi tambahan dan selalu ikuti label produk.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Gunakan masker dan sarung tangan. Jangan aplikasikan di dekat sumber air.",
+            "note": "Jangan ditampilkan sebagai rekomendasi utama kecuali ada dasar rujukan dan kebutuhan lapangan yang sesuai.",
+            "icon_type": "insecticide",
+            "recommended_for": [],
+            "recommendation_role": "tambahan_bukan_rekomendasi_utama",
+            "recommendation_context": "Tidak termasuk pilihan utama pada panduan aplikasi saat ini."
+        },
+        {
+            "id": "pymetrozine",
+            "name": "Pymetrozine",
+            "type": "Insektisida Selektif (Pyridine Azomethine)",
+            "type_color": "insecticide",
+            "mechanism": "Mengganggu mekanisme makan serangga hama penghisap dengan cara melumpuhkan stilet (alat isap) mereka secara permanen. Hama tidak mati seketika tetapi segera berhenti makan dan akhirnya mati kelaparan.",
+            "targets": [
+                "Kutu Kebul (Bemisia tabaci)",
+                "Kutudaun (Aphid)",
+                "Wereng"
+            ],
+            "application": "Bila digunakan untuk pengendalian kutu kebul/hama pengisap, aplikasikan sesuai label dan masukkan sebagai bagian dari program PHT.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Relatif aman bagi lebah madu dan musuh alami hama dibanding neonicotinoid. Klasifikasi toksisitas rendah-sedang.",
+            "note": "Bukan obat virus; tujuan penggunaannya adalah membantu menekan populasi hama pengisap.",
+            "icon_type": "insecticide",
+            "recommended_for": [
+                "curl_virus"
+            ],
+            "recommendation_role": "pengendali_kutu_kebul_pendukung",
+            "recommendation_context": "Dapat digunakan sebagai opsi pengendalian hama pengisap dalam pendekatan PHT bila produk terdaftar dan sesuai label; bukan untuk menyembuhkan virus."
+        },
+        {
+            "id": "pyridaben",
+            "name": "Pyridaben",
+            "type": "Akarisida / Insektisida (METI)",
+            "type_color": "insecticide",
+            "mechanism": "Menghambat kompleks I pada rantai transportasi elektron mitokondria sel tungau dan serangga tertentu, mengganggu produksi energi (ATP) secara langsung.",
+            "targets": [
+                "Tungau merah (Tetranychus spp.)",
+                "Tungau kuning",
+                "Thrips",
+                "Kutu kebul"
+            ],
+            "application": "Tidak termasuk rekomendasi utama pada panduan perawatan aplikasi saat ini. Jika tetap tersedia sebagai referensi bahan aktif, tampilkan hanya sebagai informasi tambahan dan selalu ikuti label produk.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Beracun sedang. Gunakan sarung tangan dan masker saat penyemprotan. Berbahaya bagi lebah dan organisme air.",
+            "note": "Jangan ditampilkan sebagai rekomendasi utama kecuali ada dasar rujukan dan kebutuhan lapangan yang sesuai.",
+            "icon_type": "insecticide",
+            "recommended_for": [],
+            "recommendation_role": "tambahan_bukan_rekomendasi_utama",
+            "recommendation_context": "Tidak termasuk pilihan utama pada panduan aplikasi saat ini."
+        },
+        {
+            "id": "profenofos",
+            "name": "Profenofos",
+            "type": "Insektisida / Akarisida (Organofosfat)",
+            "type_color": "insecticide",
+            "mechanism": "Menghambat enzim asetilkolinesterase pada sistem saraf serangga secara ireversibel, menyebabkan hiperaktivitas saraf dan kelumpuhan pada hama sasaran.",
+            "targets": [
+                "Thrips",
+                "Ulat grayak (Spodoptera spp.)",
+                "Tungau",
+                "Kutu kebul"
+            ],
+            "application": "Tidak termasuk rekomendasi utama pada panduan perawatan aplikasi saat ini. Jika tetap tersedia sebagai referensi bahan aktif, tampilkan hanya sebagai informasi tambahan dan selalu ikuti label produk.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Toksisitas cukup tinggi. Wajib menggunakan APD lengkap: masker respirator, kacamata, sarung tangan, dan baju pelindung. Jangan menghirup uap.",
+            "note": "Jangan ditampilkan sebagai rekomendasi utama kecuali ada dasar rujukan dan kebutuhan lapangan yang sesuai.",
+            "icon_type": "insecticide",
+            "recommended_for": [],
+            "recommendation_role": "tambahan_bukan_rekomendasi_utama",
+            "recommendation_context": "Tidak termasuk pilihan utama pada panduan aplikasi saat ini."
+        },
+        {
+            "id": "copper_hydroxide",
+            "name": "Copper Hydroxide",
+            "type": "Bakterisida / Fungisida Kontak (Tembaga)",
+            "type_color": "bactericide",
+            "mechanism": "Ion tembaga (Cu²⁺) yang dilepaskan secara perlahan merusak enzim dan membran sel bakteri serta jamur dari luar. Bekerja sebagai pelindung (protektif) di permukaan tanaman.",
+            "targets": [
+                "Xanthomonas spp. (Bercak Bakteri)",
+                "Pseudomonas spp.",
+                "Phytophthora spp.",
+                "Downy mildew"
+            ],
+            "application": "Gunakan sedini mungkin saat gejala Bercak Bakteri mulai muncul dan ikuti label produk. Pastikan cakupan semprotan merata.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Hindari penghirupan dan kontak dengan mata. Toksis bagi cacing tanah dan organisme air. Jangan terapkan dalam dosis berlebihan atau terlalu sering (dapat menimbulkan toksisitas tembaga pada tanah).",
+            "note": "Bahan tembaga diposisikan sebagai perlindungan awal. Jangan melebihi dosis label karena risiko fitotoksisitas dapat meningkat.",
+            "icon_type": "bactericide",
+            "recommended_for": [
+                "bacterial_spot"
+            ],
+            "recommendation_role": "bakterisida_kontak_pilihan_awal",
+            "recommendation_context": "Bercak Bakteri sebagai bahan aktif tembaga untuk penanganan awal sesuai label."
+        },
+        {
+            "id": "copper_oxychloride",
+            "name": "Copper Oxychloride",
+            "type": "Bakterisida / Fungisida Kontak (Tembaga)",
+            "type_color": "bactericide",
+            "mechanism": "Melepaskan ion tembaga (Cu²⁺) secara lambat yang merusak membran sel patogen. Membentuk lapisan pelindung tahan lama di permukaan daun dan buah.",
+            "targets": [
+                "Xanthomonas spp.",
+                "Pseudomonas spp.",
+                "Phytophthora spp.",
+                "Downy Mildew"
+            ],
+            "application": "Gunakan sebagai bahan aktif tembaga untuk penanganan awal Bercak Bakteri sesuai label, terutama ketika kondisi lembap mendukung perkembangan penyakit.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Hindari kontak dengan kulit dan mata. Gunakan APD. Berbahaya bagi organisme tanah dan perairan dalam jangka panjang.",
+            "note": "Jangan menambah dosis sendiri. Efektivitas dapat dipengaruhi oleh kondisi lapangan dan sensitivitas patogen.",
+            "icon_type": "bactericide",
+            "recommended_for": [
+                "bacterial_spot"
+            ],
+            "recommendation_role": "bakterisida_kontak_pilihan_awal",
+            "recommendation_context": "Bercak Bakteri sebagai bahan aktif tembaga untuk penanganan awal sesuai label."
+        },
+        {
+            "id": "streptomycin_sulfate",
+            "name": "Streptomycin Sulfate",
+            "type": "Bakterisida (Antibiotik Pertanian)",
+            "type_color": "bactericide",
+            "mechanism": "Menghambat sintesis protein pada ribosom bakteri (sub unit 30S), sehingga bakteri tidak dapat membuat protein yang dibutuhkan untuk kelangsungan hidupnya.",
+            "targets": [
+                "Xanthomonas spp.",
+                "Pseudomonas spp.",
+                "Erwinia spp. (Busuk lunak bakteri)"
+            ],
+            "application": "Pertimbangkan saat penyebaran Bercak Bakteri tetap berlanjut setelah langkah protektif awal, hanya bila penggunaannya sesuai label produk dan ketentuan setempat.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Gunakan sesuai dosis yang direkomendasikan. Penggunaan dosis berlebihan mempercepat kekebalan/resistensi bakteri.",
+            "note": "Gunakan secara bijak karena penggunaan antibiotik pertanian berlebihan dapat meningkatkan risiko resistensi.",
+            "icon_type": "bactericide",
+            "recommended_for": [
+                "bacterial_spot"
+            ],
+            "recommendation_role": "alternatif_bakterisida",
+            "recommendation_context": "Bercak Bakteri bila penyebaran berlanjut atau diperlukan alternatif setelah penggunaan bahan tembaga, sesuai label dan ketentuan setempat."
+        },
+        {
+            "id": "kasugamycin",
+            "name": "Kasugamycin",
+            "type": "Bakterisida (Antibiotik Pertanian)",
+            "type_color": "bactericide",
+            "mechanism": "Menghambat sintesis protein bakteri pada tahap inisiasi ribosom, mencegah replikasi dan perkembangbiakan bakteri patogen tanaman.",
+            "targets": [
+                "Xanthomonas spp.",
+                "Pseudomonas spp.",
+                "Burkholderia spp."
+            ],
+            "application": "Tidak termasuk rekomendasi utama pada panduan perawatan aplikasi saat ini. Jika tetap tersedia sebagai referensi bahan aktif, tampilkan hanya sebagai informasi tambahan dan selalu ikuti label produk.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Toksisitas rendah terhadap mamalia dan serangga bermanfaat. Gunakan masker saat penyemprotan.",
+            "note": "Jangan ditampilkan sebagai rekomendasi utama kecuali ada dasar rujukan dan kebutuhan lapangan yang sesuai.",
+            "icon_type": "bactericide",
+            "recommended_for": [],
+            "recommendation_role": "tambahan_bukan_rekomendasi_utama",
+            "recommendation_context": "Tidak termasuk pilihan utama pada panduan aplikasi saat ini."
+        },
+        {
+            "id": "bacillus_subtilis",
+            "name": "Bacillus subtilis",
+            "type": "Agen Hayati / Biologis",
+            "type_color": "biological",
+            "mechanism": "Bakteri menguntungkan yang menghasilkan senyawa antijamur (iturin, surfactin, fengycin) dan antibakteri alami. Berkompetisi dengan patogen untuk ruang dan nutrisi di permukaan tanaman, serta menginduksi ketahanan sistemik (ISR) tanaman.",
+            "targets": [
+                "Xanthomonas spp.",
+                "Pseudomonas spp.",
+                "Rhizoctonia spp.",
+                "Fusarium spp.",
+                "Botrytis spp."
+            ],
+            "application": "Dapat diposisikan sebagai agen hayati pendukung PHT sesuai label produk; bukan pengganti diagnosis dan pengendalian utama.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Ikuti petunjuk label produk dan gunakan sesuai prosedur aplikasi agen hayati.",
+            "note": "Efektivitasnya membutuhkan waktu lebih lama dibanding kimia sintetik. Paling baik digunakan sebagai bagian dari sistem pengendalian terpadu (PHT) atau untuk pencegahan.",
+            "icon_type": "biological",
+            "recommended_for": [],
+            "recommendation_role": "pendukung_pht",
+            "recommendation_context": "Agen hayati dapat diposisikan sebagai dukungan PHT, tetapi tidak termasuk langkah utama yang diberikan pengguna pada pembaruan rekomendasi ini."
+        },
+        {
+            "id": "trichoderma_harzianum",
+            "name": "Trichoderma harzianum",
+            "type": "Agen Hayati / Fungi Antagonis",
+            "type_color": "biological",
+            "mechanism": "Jamur menguntungkan yang bersifat parasit terhadap jamur patogen. Bekerja melalui kompetisi, parasitisme langsung terhadap sel patogen (mycoparasitism), serta menghasilkan senyawa antijamur alami.",
+            "targets": [
+                "Fusarium spp.",
+                "Rhizoctonia spp.",
+                "Sclerotinia spp.",
+                "Phytophthora spp.",
+                "Botrytis spp."
+            ],
+            "application": "Dapat diposisikan sebagai agen hayati pendukung PHT sesuai label produk; bukan pengganti diagnosis dan pengendalian utama.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Ikuti petunjuk label produk dan prosedur aplikasi agen hayati.",
+            "note": "Jangan dicampur dengan fungisida kimia sintetik. Simpan di tempat yang sejuk dan hindari paparan sinar matahari langsung saat penyimpanan agar spora tetap hidup.",
+            "icon_type": "biological",
+            "recommended_for": [],
+            "recommendation_role": "pendukung_pht",
+            "recommendation_context": "Agen hayati pendukung PHT; tidak termasuk langkah utama yang diberikan pengguna pada pembaruan rekomendasi ini."
+        },
+        {
+            "id": "copper_sulfate",
+            "name": "Copper Sulfate",
+            "type": "Bakterisida / Fungisida Kontak (Tembaga)",
+            "type_color": "bactericide",
+            "mechanism": "Ion tembaga bekerja sebagai pelindung permukaan dan dapat mengganggu fungsi sel patogen. Dalam konteks aplikasi, penggunaannya harus mengikuti formulasi dan label produk yang terdaftar.",
+            "targets": [
+                "Xanthomonas spp. (Bercak Bakteri)"
+            ],
+            "application": "Gunakan sedini mungkin ketika gejala Bercak Bakteri mulai muncul, hanya sesuai label produk untuk tanaman cabai.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Gunakan APD sesuai label. Hindari penggunaan berlebihan karena bahan tembaga dapat menimbulkan fitotoksisitas pada kondisi tertentu.",
+            "note": "Salah satu bentuk bahan aktif tembaga yang disebut dalam rekomendasi penanganan Bercak Bakteri. Jangan menambah dosis sendiri.",
+            "icon_type": "bactericide",
+            "recommended_for": [
+                "bacterial_spot"
+            ],
+            "recommendation_role": "bakterisida_kontak_pilihan_awal",
+            "recommendation_context": "Bercak Bakteri sebagai bahan aktif tembaga untuk penanganan awal sesuai label."
+        },
+        {
+            "id": "pyraclostrobin",
+            "name": "Pyraclostrobin",
+            "type": "Fungisida Sistemik / Translaminar (Strobilurin)",
+            "type_color": "fungicide",
+            "mechanism": "Menghambat respirasi mitokondria jamur dan digunakan sebagai salah satu kelompok fungisida strobilurin. Penggunaan harus mengikuti label produk dan program rotasi bahan aktif.",
+            "targets": [
+                "Cercospora spp.",
+                "Oidium spp. (Embun Tepung)"
+            ],
+            "application": "Gunakan bila gejala Bercak Daun Serkospora tetap berkembang dan produk terdaftar sesuai sasaran, dengan rotasi bahan aktif sesuai label.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Gunakan APD sesuai label dan hindari pencemaran sumber air.",
+            "note": "Disebut sebagai pilihan rotasi pada Bercak Daun Serkospora. Hindari penggunaan berturut-turut tanpa rotasi kelompok bahan aktif.",
+            "icon_type": "fungicide",
+            "recommended_for": [
+                "cercospora_leaf_spot",
+                "white_spot"
+            ],
+            "recommendation_role": "sistemik_rotasi",
+            "recommendation_context": "Bercak Daun Serkospora sebagai pilihan rotasi; Bercak Putih hanya bila penyebab terkonfirmasi sebagai embun tepung."
+        },
+        {
+            "id": "spinosad",
+            "name": "Spinosad",
+            "type": "Insektisida (Spinosyn)",
+            "type_color": "insecticide",
+            "mechanism": "Mempengaruhi sistem saraf serangga dan digunakan untuk mengendalikan beberapa hama termasuk thrips. Sasaran, dosis, dan interval harus mengikuti label produk.",
+            "targets": [
+                "Thrips"
+            ],
+            "application": "Untuk Virus Keriting, gunakan hanya sebagai pengendalian thrips bila produk terdaftar untuk sasaran tersebut pada tanaman cabai. Aplikasikan sesuai label.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Gunakan APD sesuai label dan perhatikan perlindungan organisme non-sasaran.",
+            "note": "Tidak menyembuhkan virus; digunakan untuk membantu menekan vektor/hama thrips dalam program pengendalian terpadu.",
+            "icon_type": "insecticide",
+            "recommended_for": [
+                "curl_virus"
+            ],
+            "recommendation_role": "pengendali_vektor_hama",
+            "recommendation_context": "Virus Keriting untuk membantu mengendalikan thrips sebagai bagian dari pengendalian vektor."
+        },
+        {
+            "id": "myclobutanil",
+            "name": "Myclobutanil",
+            "type": "Fungisida Sistemik (Triazole)",
+            "type_color": "fungicide",
+            "mechanism": "Menghambat biosintesis sterol pada jamur dan termasuk kelompok fungisida sistemik. Penggunaannya harus mengikuti label produk.",
+            "targets": [
+                "Oidium spp. (Embun Tepung)"
+            ],
+            "application": "Gunakan hanya bila Bercak Putih telah dikonfirmasi mengarah ke embun tepung dan produk terdaftar untuk sasaran tersebut.",
+            "dosage": "Ikuti dosis, interval, masa tunggu, dan ketentuan penggunaan pada label produk yang terdaftar untuk tanaman cabai. Jangan menentukan dosis sendiri.",
+            "safety": "Gunakan APD sesuai label produk.",
+            "note": "Salah satu bahan aktif yang disebut dalam rekomendasi pengendalian embun tepung; gunakan sebagai bagian dari rotasi bahan aktif.",
+            "icon_type": "fungicide",
+            "recommended_for": [
+                "white_spot"
+            ],
+            "recommendation_role": "sistemik_rotasi",
+            "recommendation_context": "Bercak Putih hanya bila penyebab terkonfirmasi sebagai embun tepung."
+        }
+    ]
+}

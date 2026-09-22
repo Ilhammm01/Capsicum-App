@@ -1,0 +1,4 @@
+-keep class org.tensorflow.** { *; }
+-dontwarn org.tensorflow.**
+-keep class java.nio.** { *; }
+-dontwarn java.nio.**

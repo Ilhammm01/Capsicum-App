@@ -1,0 +1,89 @@
+name: capsicum
+description: "Aplikasi deteksi dan klasifikasi penyakit buah cabai besar secara real-time menggunakan YOLOv11-Segmentation."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+
+  # Navigation
+  go_router: ^14.2.7
+
+  # Camera
+  camera: ^0.11.0+2
+
+  # AI / ML
+  tflite_flutter: 0.12.0
+
+  # Image processing
+  image: ^4.2.0
+
+  # Local database
+  hive_flutter: ^1.1.0
+
+  # File storage
+  path_provider: ^2.1.4
+
+  # Location
+  geolocator: ^13.0.2
+  geocoding: ^3.0.0
+
+  # Permission
+  permission_handler: ^11.3.1
+
+  # Formatting
+  intl: ^0.19.0
+
+  # UI
+  flutter_svg: ^2.0.10+1
+  cupertino_icons: ^1.0.8
+
+  # Share (optional)
+  share_plus: ^10.0.0
+  saver_gallery: ^5.1.0
+  lucide_icons_flutter: ^3.1.15
+
+  # AI Recommendation & Weather
+  google_fonts: ^8.2.0
+  url_launcher: ^6.3.2
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.9
+  riverpod_generator: ^2.3.9
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/models/
+    - assets/data/
+    - assets/icons/
+    - assets/images/
+    - assets/images/bacterial_spot/
+    - assets/images/cercospora_leaf_spot/
+    - assets/images/curl_virus/
+    - assets/images/healthy_leaf/
+    - assets/images/white_spot/
+
+  fonts:
+    - family: Google Sans
+      fonts:
+        - asset: assets/fonts/GoogleSans-VariableFont_GRAD,opsz,wght.ttf
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "assets/icons/Capsicum_app_icon.png"

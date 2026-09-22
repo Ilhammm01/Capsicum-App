@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "updated_at": "2026-09-18",
+  "classes": [
+    {
+      "id": "healthy_leaf",
+      "label_model": "Healthy Leaf",
+      "name_id": "Daun Sehat",
+      "type": "healthy",
+      "description": "Daun tidak menunjukkan gejala penyakit yang termasuk dalam kelas penelitian. Daun umumnya memiliki warna hijau yang relatif seragam, bentuk normal, dan tidak menunjukkan bercak nekrotik, pola mosaik atau keriting yang abnormal, maupun gejala khas kelas penyakit lainnya.",
+      "symptoms": [
+        "Warna daun relatif hijau dan merata",
+        "Bentuk dan permukaan daun normal",
+        "Tidak terdapat bercak nekrotik atau lesi penyakit yang jelas",
+        "Tidak menunjukkan pola keriting atau deformasi yang tidak normal"
+      ],
+      "care_recommendations": [
+        "Lakukan pemantauan tanaman secara berkala",
+        "Pertahankan kebersihan dan sanitasi lahan",
+        "Gunakan benih atau bibit yang sehat",
+        "Jaga drainase dan sirkulasi udara di sekitar tanaman",
+        "Lakukan pemupukan sesuai kebutuhan tanaman dan kondisi lahan",
+        "Segera periksa perubahan gejala pada daun apabila muncul bercak, perubahan warna, atau deformasi"
+      ],
+      "warning": "Hasil ini menunjukkan daun termasuk kelas Daun Sehat berdasarkan gejala visual yang digunakan oleh model. Pemeriksaan berkala tetap diperlukan karena gejala penyakit dapat muncul pada tahap berikutnya.",
+      "sources": [
+        {
+          "type": "official",
+          "title": "Hama dan Penyakit pada Tanaman Cabai serta Pengendaliannya",
+          "publisher": "Direktorat Jenderal Hortikultura, Kementerian Pertanian RI",
+          "year": 2024,
+          "url": "https://hortikultura.pertanian.go.id/hama-dan-penyakit-pada-tanaman-cabai-serta-pengendaliannya/"
+        }
+      ],
+      "video_sources": []
+    },
+    {
+      "id": "cercospora_leaf_spot",
+      "label_model": "Cercospora Leaf Spot",
+      "name_id": "Bercak Daun Serkospora",
+      "type": "disease",
+      "description": "Penyakit bercak daun pada cabai yang berkaitan dengan Cercospora/Passalora capsicicola. Gejalanya dapat berupa bercak bulat atau lonjong yang berkembang menjadi cokelat atau kecokelatan dengan bagian tepi lebih gelap. Pada perkembangan lanjut, jaringan bagian tengah dapat mengalami nekrosis dan daun dapat menguning atau gugur.",
+      "symptoms": [
+        "Bercak bulat atau lonjong pada permukaan daun",
+        "Bagian bercak berwarna cokelat atau kecokelatan dengan tepi lebih gelap",
+        "Bercak yang lebih tua dapat mengalami nekrosis atau menyebabkan jaringan berlubang",
+        "Jumlah bercak yang banyak dapat menyebabkan daun menguning dan gugur"
+      ],
+      "care_recommendations": [
+        "Semprot fungisida saat bercak pertama muncul dan selalu ikuti dosis serta interval aplikasi sesuai label produk.",
+        "Fungisida kontak seperti klorotalonil atau mancozeb dapat digunakan sebagai pilihan awal untuk pengendalian bercak daun pada cabai sesuai label dan ketersediaan produk terdaftar.",
+        "Jika gejala tetap berkembang, lakukan rotasi ke bahan aktif dengan kelompok berbeda, misalnya azoksistrobin atau piraclostrobin. Kombinasi azoksistrobin + difenokonazol dapat digunakan hanya jika produk tersebut terdaftar dan label mengizinkannya.",
+        "Aplikasi dapat dijadwalkan pada pagi atau sore hari sesuai petunjuk label dan kondisi lingkungan agar aplikasi lebih optimal.",
+        "Arahkan semprotan ke permukaan daun secara menyeluruh, termasuk sisi daun yang terdampak, sesuai petunjuk penggunaan produk.",
+        "Bersihkan daun yang terserang dan sisa tanaman di sekitar lahan untuk mengurangi sumber inokulum dan penyebaran penyakit.",
+        "Jaga drainase lahan, kurangi genangan air, dan usahakan sirkulasi udara tetap baik.",
+        "Hindari penyiraman yang membuat daun terus-menerus basah; penyiraman pada pangkal tanaman lebih aman bila memungkinkan.",
+        "Hindari bekerja di lahan ketika tanaman masih basah untuk membantu mengurangi penyebaran patogen.",
+        "Lakukan rotasi bahan aktif dan hindari penggunaan bahan aktif yang sama secara terus-menerus untuk membantu mengurangi risiko resistensi."
+      ],
+      "warning": "Hasil deteksi merupakan identifikasi berbasis citra dan bukan konfirmasi laboratorium. Gunakan fungisida yang terdaftar untuk tanaman cabai dan ikuti dosis, interval, masa tunggu, serta petunjuk keselamatan pada label. Bila gejala berat atau tidak membaik setelah rotasi bahan aktif, konfirmasi penyebab dan evaluasi strategi pengendalian.",
+      "sources": [
+        {
+          "type": "journal",
+          "title": "Analisis Perbandingan Perkembangan Penyakit Bercak Daun (Cercospora capsici) pada Tanaman Cabai Merah (Capsicum annuum L.)",
+          "publisher": "Paspalum: Jurnal Ilmiah Pertanian",
+          "year": 2023,
+          "url": "https://journal.unwim.ac.id/index.php/paspalum/article/view/597"
+        },
+        {
+          "type": "journal",
+          "title": "In-vitro Evaluation of Botanicals and Fungicides against Cercospora capsici Causing Leaf Spot of Chilli",
+          "publisher": "International Journal of Plant & Soil Science",
+          "year": 2023,
+          "url": "https://journalijpss.com/index.php/IJPSS/article/view/3954"
+        },
+        {
+          "type": "official",
+          "title": "Hama dan Penyakit pada Tanaman Cabai serta Pengendaliannya",
+          "publisher": "Direktorat Jenderal Hortikultura, Kementerian Pertanian RI",
+          "year": 2024,
+          "url": "https://hortikultura.pertanian.go.id/hama-dan-penyakit-pada-tanaman-cabai-serta-pengendaliannya/"
+        }
+      ],
+      "video_sources": [
+        {
+          "type": "video",
+          "title": "Bercak Daun Cercospora capsici Tanaman Cabai - Part 1",
+          "publisher": "Gen Adi - Lab",
+          "year": 2025,
+          "url": "https://www.youtube.com/watch?v=gILapJJSYmQ",
+          "platform": "YouTube"
+        },
+        {
+          "type": "video",
+          "title": "Cara Mengatasi Bercak Daun Akibat Jamur Cercospora",
+          "publisher": "Petani Sederhana",
+          "year": 2021,
+          "url": "https://www.youtube.com/watch?v=hhaumu0DzYw",
+          "platform": "YouTube"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Bercak Daun Serkospora 1",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@senengtani_id/video/7382872667570834694",
+          "platform": "TikTok"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Bercak Daun Serkospora 2",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@tokder.tv/video/7447696156307574024",
+          "platform": "TikTok"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Bercak Daun Serkospora 3",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@tokder.tv/video/7444729462182137106",
+          "platform": "TikTok"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Bercak Daun Serkospora 4",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@lantarantani23/video/7328414431153523974",
+          "platform": "TikTok"
+        }
+      ]
+    },
+    {
+      "id": "bacterial_spot",
+      "label_model": "Bacterial Spot",
+      "name_id": "Bercak Bakteri",
+      "type": "bacterial",
+      "description": "Penyakit bercak bakteri pada cabai yang berkaitan dengan kelompok bakteri Xanthomonas. Gejala pada daun dapat berupa lesi kecil yang berkembang menjadi bercak cokelat hingga hitam, kadang tampak seperti jaringan basah dan dapat disertai area kekuningan. Bercak dapat menyatu dan menyebabkan nekrosis serta gugurnya daun.",
+      "symptoms": [
+        "Bercak atau lesi kecil pada permukaan daun",
+        "Lesi dapat tampak basah atau water-soaked",
+        "Warna lesi dapat berkembang menjadi cokelat atau hitam",
+        "Dapat terdapat area kekuningan di sekitar lesi",
+        "Bercak dapat menyatu dan menyebabkan nekrosis atau gugurnya daun"
+      ],
+      "care_recommendations": [
+        "Ambil dan buang daun yang sudah terinfeksi, lalu bersihkan sisa tanaman yang jatuh di sekitar bedengan agar sumber penyebaran penyakit berkurang.",
+        "Kurangi kondisi yang membuat daun cepat basah. Hindari penyiraman dengan mengguyur daun; gunakan irigasi tetes atau penyiraman pada pangkal tanaman. Jika penyiraman dari atas tetap dilakukan, pilih waktu pagi agar daun lebih cepat kering.",
+        "Perbaiki sirkulasi udara dengan menjaga jarak tanam yang cukup dan memangkas bagian bawah tanaman yang terlalu rapat agar kelembapan di sekitar tanaman tidak terlalu tinggi.",
+        "Pada awal munculnya gejala, pengendalian dapat menggunakan bahan aktif berbasis tembaga sesuai label. Jika penyebaran tetap berlanjut, strategi pengendalian dapat dievaluasi dan bahan aktif lain seperti streptomycin digunakan hanya sesuai ketentuan produk yang terdaftar.",
+        "Pilihan bahan aktif yang disebut dalam rujukan untuk bercak bakteri meliputi senyawa tembaga seperti copper oxide, copper hydroxide, atau copper sulfate, serta streptomycin. Pemilihan produk harus disesuaikan dengan registrasi dan label yang berlaku.",
+        "Bahan aktif tembaga dapat dipertimbangkan terutama ketika kondisi lembap atau musim hujan mendukung perkembangan penyakit. Jangan meningkatkan dosis secara sembarangan karena penggunaan berlebih dapat menimbulkan fitotoksisitas.",
+        "Jika tanaman sudah menunjukkan serangan sangat berat, prioritaskan pembersihan tanaman terinfeksi, perbaikan kelembapan lahan, sanitasi, dan rotasi bahan aktif bila memang diperlukan."
+      ],
+      "warning": "Hasil deteksi berbasis citra tidak menggantikan diagnosis laboratorium. Gunakan bahan aktif dan dosis hanya sesuai label produk yang terdaftar untuk tanaman cabai. Jangan menambah dosis secara sembarangan, dan pertimbangkan risiko resistensi serta fitotoksisitas.",
+      "sources": [
+        {
+          "type": "journal",
+          "title": "Biology and Management of Bacterial Spot of Peppers in Oklahoma",
+          "publisher": "Plant Disease",
+          "year": 2021,
+          "url": "https://apsjournals.apsnet.org/doi/10.1094/PDIS-05-20-0926-RE"
+        },
+        {
+          "type": "official",
+          "title": "Hama dan Penyakit pada Tanaman Cabai serta Pengendaliannya",
+          "publisher": "Direktorat Jenderal Hortikultura, Kementerian Pertanian RI",
+          "year": 2024,
+          "url": "https://hortikultura.pertanian.go.id/hama-dan-penyakit-pada-tanaman-cabai-serta-pengendaliannya/"
+        }
+      ],
+      "video_sources": [
+        {
+          "type": "video",
+          "title": "Bacterial Spot (Control and Management)",
+          "publisher": "AgriGabay",
+          "year": 2022,
+          "url": "https://www.youtube.com/watch?v=LWq1L0ECgYI",
+          "platform": "YouTube"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Bercak Bakteri 1",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@peduli_petani/video/7608149963431759112",
+          "platform": "TikTok"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Bercak Bakteri 2",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@sandalmurah_10/video/7226556026777062683",
+          "platform": "TikTok"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Bercak Bakteri 3",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@petanicerdasofficial/photo/7613206306702314759",
+          "platform": "TikTok"
+        }
+      ]
+    },
+    {
+      "id": "curl_virus",
+      "label_model": "Curl Virus",
+      "name_id": "Virus Keriting",
+      "type": "viral",
+      "description": "Kondisi yang berkaitan dengan penyakit leaf curl pada cabai yang dapat disebabkan oleh begomovirus dan terutama ditularkan melalui kutu kebul Bemisia tabaci. Gejalanya dapat berupa daun menggulung, keriting, berkerut, perubahan ukuran dan bentuk daun, vein banding, klorosis, serta pertumbuhan tanaman yang terhambat.",
+      "symptoms": [
+        "Daun menggulung atau keriting",
+        "Daun berkerut atau mengalami deformasi",
+        "Ukuran daun dapat mengecil",
+        "Dapat muncul vein banding atau klorosis",
+        "Pertumbuhan tanaman dapat terhambat"
+      ],
+      "care_recommendations": [
+        "Pastikan gejala yang terlihat memang mengarah pada virus keriting, karena hama penghisap seperti thrips juga dapat menimbulkan daun keriting dengan gejala yang menyerupai infeksi virus.",
+        "Kurangi populasi kutu kebul dan thrips secara terpadu karena kedua kelompok hama tersebut dapat berperan sebagai vektor penular virus.",
+        "Gunakan perangkap kuning, sanitasi kebun, dan metode pengendalian vektor lain yang sesuai untuk menekan populasi kutu kebul.",
+        "Untuk thrips, bahan aktif seperti abamektin, spinosad, atau imidakloprid disebut dalam rujukan sebagai pilihan pengendalian. Penggunaan harus mengikuti produk yang terdaftar, dosis, interval, dan masa tunggu pada label.",
+        "Untuk tanaman yang masih layak dipelihara, setelah tekanan hama terkendali lakukan pemulihan pertumbuhan dengan pemupukan dan nutrisi sesuai kebutuhan tanaman, termasuk sumber asam amino dan unsur hara mikro bila diperlukan.",
+        "Jika tanaman sudah menunjukkan gejala sangat parah, pertimbangkan pencabutan atau eradikasi tanaman terinfeksi dan pengendalian vektor di sekitarnya untuk mengurangi sumber penularan.",
+        "Gunakan bibit atau bahan tanam yang sehat, lakukan sanitasi kebun, rotasi tanaman, dan gunakan varietas yang lebih toleran atau tahan apabila tersedia.",
+        "Aplikasi pengendalian vektor dapat disesuaikan dengan kondisi lapangan; hindari penyemprotan pada waktu yang berisiko mengurangi efektivitas aplikasi dan selalu ikuti petunjuk label produk."
+      ],
+      "warning": "Hasil deteksi berbasis citra tidak menggantikan konfirmasi penyebab virus. Tanaman yang telah terinfeksi virus tidak dapat dianggap sembuh hanya karena populasi vektornya turun. Fokus pengelolaan adalah mengurangi penularan, mengendalikan vektor, menjaga tanaman sehat, dan menangani tanaman bergejala berat. Jangan menganggap semua gejala keriting sebagai virus karena hama penghisap dapat menimbulkan gejala yang serupa.",
+      "sources": [
+        {
+          "type": "journal",
+          "title": "Current Status, Breeding Strategies and Future Prospects for Managing Chilli Leaf Curl Virus Disease and Associated Begomoviruses in Chilli (Capsicum spp.)",
+          "publisher": "Frontiers in Plant Science",
+          "year": 2023,
+          "url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2023.1223982/full"
+        },
+        {
+          "type": "journal",
+          "title": "Non Chemical Methods for Management of Chilli Leaf Curl Disease",
+          "publisher": "Journal of Krishi Vigyan",
+          "year": 2023,
+          "url": "https://indianjournals.com/article/jkv-11-2-044"
+        },
+        {
+          "type": "official",
+          "title": "Hama dan Penyakit pada Tanaman Cabai serta Pengendaliannya",
+          "publisher": "Direktorat Jenderal Hortikultura, Kementerian Pertanian RI",
+          "year": 2024,
+          "url": "https://hortikultura.pertanian.go.id/hama-dan-penyakit-pada-tanaman-cabai-serta-pengendaliannya/"
+        }
+      ],
+      "video_sources": [
+        {
+          "type": "video",
+          "title": "Cara Mengatasi Keriting Daun Cabe Akibat Kutu Kebul",
+          "publisher": "AKU ANAK PETANI",
+          "year": 2021,
+          "url": "https://www.youtube.com/watch?v=XRn6J9ZsgpQ",
+          "platform": "YouTube"
+        },
+        {
+          "type": "video",
+          "title": "Insektisida Ampuh Untuk Kutu Kebul pada Cabe",
+          "publisher": "Home Tani",
+          "year": 2022,
+          "url": "https://www.youtube.com/watch?v=4oiSeeOXaa4",
+          "platform": "YouTube"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Virus Keriting 1",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@caliber937/video/7562842078884023560",
+          "platform": "TikTok"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Virus Keriting 2",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@pakartaniofficial/video/7670162285494701319",
+          "platform": "TikTok"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Virus Keriting 3",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@aris.pipit/video/7479783712146672902",
+          "platform": "TikTok"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Virus Keriting 4",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@ilh4m.fauzii/video/7512435188622773560",
+          "platform": "TikTok"
+        }
+      ]
+    },
+    {
+      "id": "white_spot",
+      "label_model": "White Spot",
+      "name_id": "Bercak Putih",
+      "type": "disease",
+      "description": "Kelas visual yang ditandai dengan area atau bercak putih hingga pucat pada daun cabai. Bentuknya dapat bulat atau tidak beraturan. Karena pola bercak putih dapat memiliki beberapa kemungkinan penyebab, hasil kelas ini perlu diperiksa kembali berdasarkan kondisi lapangan sebelum menentukan penanganan spesifik.",
+      "symptoms": [
+        "Area atau bercak putih atau pucat pada daun",
+        "Bentuk dapat bulat atau tidak beraturan",
+        "Kontras warna terlihat jelas dengan jaringan daun sehat",
+        "Bagian terdampak dapat berkembang menjadi kerusakan jaringan"
+      ],
+      "care_recommendations": [
+        "Perhatikan bahwa Bercak Putih merupakan kelas visual. Panduan berikut terutama ditujukan bila gejalanya sesuai dengan embun tepung; konfirmasi penyebab tetap diperlukan sebelum menentukan pengendalian spesifik.",
+        "Pada serangan ringan atau awal, mulai dengan pengendalian budaya dan bahan pendamping seperti belerang, soda kue, atau susu jika sesuai dengan praktik budidaya setempat. Gunakan sebagai pendamping, bukan pengganti pengendalian utama ketika serangan sudah meluas.",
+        "Pada serangan yang sudah jelas atau menyebar, pengendalian dapat menggunakan fungisida sistemik dan kontak sesuai label produk yang terdaftar. Bahan aktif yang disebut dalam rujukan meliputi azoksistrobin, difenokonazol, hexaconazole, myclobutanil, tebuconazole, sulfur, dan klorotalonil.",
+        "Pangkas atau buang daun yang terinfeksi dan bersihkan alat serta tangan setelah menangani tanaman sakit agar penyebaran ke tanaman sehat berkurang.",
+        "Perbaiki sirkulasi udara dengan jarak tanam yang tidak terlalu rapat, pemangkasan daun bawah, dan pemilihan lokasi yang lebih kering atau berangin sehingga kelembapan lokal menurun.",
+        "Hindari pemupukan nitrogen berlebih karena pertumbuhan vegetatif yang terlalu subur dapat memperburuk perkembangan embun tepung.",
+        "Jangan mencampur banyak bahan aktif sekaligus tanpa dasar rekomendasi label. Prinsip yang lebih aman adalah rotasi bahan aktif atau kombinasi yang memang diizinkan oleh label produk.",
+        "Detail dosis, interval penyemprotan, kompatibilitas campuran, dan masa tunggu berbeda antarproduk sehingga selalu ikuti label produk yang digunakan.",
+        "Jika serangan sudah sangat parah, prioritaskan penghentian penyebaran dengan sanitasi, pembuangan bagian terinfeksi, dan pengendalian yang sesuai daripada hanya mengandalkan penanganan rumahan."
+      ],
+      "warning": "Bercak Putih adalah kelas berbasis tampilan citra dan tidak otomatis menunjukkan satu organisme penyebab. Panduan di atas berfokus pada skenario embun tepung. Bila gejala tidak sesuai atau terdapat indikasi hama, lakukan pemeriksaan lapangan sebelum memilih fungisida atau insektisida. Selalu ikuti label produk.",
+      "sources": [
+        {
+          "type": "journal",
+          "title": "Powdery Mildew Caused by Leveillula taurica: A Global Challenge for Pepper Production",
+          "publisher": "Molecular Plant Pathology",
+          "year": 2025,
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40709757/"
+        },
+        {
+          "type": "journal",
+          "title": "Potential of Chitosan for the Control of Powdery Mildew (Leveillula taurica) in a Jalapeño Pepper",
+          "publisher": "Plants",
+          "year": 2024,
+          "url": "https://www.mdpi.com/2223-7747/13/7/915"
+        },
+        {
+          "type": "official",
+          "title": "Hama dan Penyakit pada Tanaman Cabai serta Pengendaliannya",
+          "publisher": "Direktorat Jenderal Hortikultura, Kementerian Pertanian RI",
+          "year": 2024,
+          "url": "https://hortikultura.pertanian.go.id/hama-dan-penyakit-pada-tanaman-cabai-serta-pengendaliannya/"
+        }
+      ],
+      "video_sources": [
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Embun Tepung 1",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@tokder.tv/video/7472963496792165650",
+          "platform": "TikTok"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Embun Tepung 2",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@aris.pipit/video/7633056151256452372",
+          "platform": "TikTok"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Embun Tepung 3",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@tokder.tv/video/7515680994700086535",
+          "platform": "TikTok"
+        },
+        {
+          "type": "tiktok",
+          "title": "Referensi TikTok Embun Tepung 4",
+          "publisher": "TikTok",
+          "year": null,
+          "url": "https://www.tiktok.com/@petrokayaku.official/video/7675689911814573332",
+          "platform": "TikTok"
+        }
+      ]
+    }
+  ]
+}
