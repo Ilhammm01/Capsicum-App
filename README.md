@@ -5,14 +5,14 @@
 ![TensorFlow Lite](https://img.shields.io/badge/TensorFlow_Lite-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
 ![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
 
-Capsicum App adalah aplikasi *mobile* berbasis **Flutter** yang dirancang khusus untuk mendeteksi dan mengklasifikasikan penyakit pada tanaman cabai secara *real-time*. Aplikasi ini berjalan menggunakan arsitektur **Local-First**, memanfaatkan **YOLOv11-Segmentation** dan **TensorFlow Lite (TFLite)** yang tertanam langsung di dalam perangkat (on-device inference), sehingga pendeteksian dapat dilakukan **tanpa memerlukan koneksi internet**.
+Capsicum App adalah aplikasi *mobile* berbasis **Flutter** yang dirancang khusus untuk mendeteksi dan mengklasifikasikan penyakit pada tanaman cabai secara *real-time*. Aplikasi ini berjalan menggunakan arsitektur **Local-First**, memanfaatkan **YOLOv11 Bounding Box** dan **TensorFlow Lite (TFLite)** yang tertanam langsung di dalam perangkat (on-device inference), sehingga pendeteksian dapat dilakukan **tanpa memerlukan koneksi internet**.
 
 ---
 
 ## Fitur Utama (Key Features)
 
 1. **Deteksi Kamera Real-time (On-Device Inference)** 
-   Arahkan kamera ke daun cabai, dan AI (TFLite) akan langsung memberikan hasil segmentasi penyakit yang ditemukan beserta tingkat keparahannya secara instan.
+   Arahkan kamera ke daun cabai, dan AI (TFLite) akan langsung memberikan hasil deteksi (bounding box) penyakit yang ditemukan beserta tingkat keparahannya secara instan.
 2. **Offline Pertama (Local-First)** 
    Tidak ada data gambar yang dikirim ke server luar. Inference AI bekerja murni 100% secara offline di perangkat pengguna.
 3. **Pusat Informasi Penyakit (Information Hub)**
@@ -32,7 +32,7 @@ Capsicum App adalah aplikasi *mobile* berbasis **Flutter** yang dirancang khusus
 ## Tech Stack
 
 * **Framework:** [Flutter](https://flutter.dev/) (Dart)
-* **Kecerdasan Buatan (AI):** YOLOv11-Segmentation diekspor ke [TensorFlow Lite](https://www.tensorflow.org/lite)
+* **Kecerdasan Buatan (AI):** YOLOv11 Bounding Box diekspor ke [TensorFlow Lite](https://www.tensorflow.org/lite)
 * **State Management:** [Riverpod](https://riverpod.dev/)
 * **Local Database:** [Hive](https://pub.dev/packages/hive)
 * **Akses Perangkat:** Geolocator (GPS), Camera (Visi Mesin)
@@ -45,8 +45,8 @@ Pastikan lingkungan Anda telah terpasang **Flutter SDK** (versi stabil terbaru).
 
 **1. Clone Repositori Ini**
 ```bash
-git clone https://github.com/Ilhammm01/capsicum.git
-cd capsicum
+git clone https://github.com/Ilhammm01/Capsicum-App.git
+cd Capsicum-App
 ```
 
 **2. Unduh Semua Dependensi**
