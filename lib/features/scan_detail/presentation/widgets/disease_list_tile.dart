@@ -5,13 +5,13 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class DiseaseListTile extends StatefulWidget {
   final DiseaseInfo disease;
-  final double? confidence;
+  final List<double>? confidences;
   final int? detectionCount;
 
   const DiseaseListTile({
     super.key,
     required this.disease,
-    this.confidence,
+    this.confidences,
     this.detectionCount,
   });
 
@@ -75,9 +75,20 @@ class _DiseaseListTileState extends State<DiseaseListTile> {
                           ),
                         ),
                       ),
-                      if (widget.confidence != null) ...[
+                      if (widget.confidences != null &&
+                          widget.confidences!.isNotEmpty) ...[
                         const SizedBox(width: 8),
-                        _ConfidenceBadge(confidence: widget.confidence!),
+                        Expanded(
+                          flex: 2,
+                          child: Wrap(
+                            spacing: 6,
+                            runSpacing: 6,
+                            alignment: WrapAlignment.end,
+                            children: widget.confidences!
+                                .map((c) => _ConfidenceBadge(confidence: c))
+                                .toList(),
+                          ),
+                        ),
                       ],
                       const SizedBox(width: 8),
                       Icon(
@@ -96,21 +107,14 @@ class _DiseaseListTileState extends State<DiseaseListTile> {
                       widget.detectionCount! > 0) ...[
                     Row(
                       children: [
-                        Icon(
-                          Icons.crop_square_rounded,
-                          size: 13,
-                          color:
-                              AppTheme.onSurfaceVariant.withValues(alpha: 0.6),
-                        ),
-                        const SizedBox(width: 4),
                         Text(
                           '${widget.detectionCount} area terdeteksi',
                           style: TextStyle(
-                            fontSize: 11.5,
-                            color: AppTheme.onSurfaceVariant
+                            fontSize: 12,
+                            color: const Color.fromARGB(255, 28, 29, 32)
                                 .withValues(alpha: 0.7),
                             fontFamily: 'Google Sans',
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ],

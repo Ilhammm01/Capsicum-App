@@ -210,7 +210,11 @@ class _ScanListTile extends StatelessWidget {
   Widget _buildThumbnail() {
     final file = File(model.imagePath);
     if (model.imagePath.isNotEmpty && file.existsSync()) {
-      return Image.file(file, fit: BoxFit.cover);
+      return Image.file(
+        file,
+        fit: BoxFit.cover,
+        cacheWidth: 144, // 72px × 2 (device pixel ratio) — hemat RAM
+      );
     }
     return Container(
       color: AppTheme.surfaceVariant,

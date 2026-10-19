@@ -1,11 +1,16 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../features/detection/presentation/screens/camera_screen.dart';
 import '../features/scan_detail/presentation/screens/scan_detail_screen.dart';
 import '../features/history/presentation/screens/history_screen.dart';
 import '../features/history/data/models/scan_history_model.dart';
 
+final RouteObserver<ModalRoute<void>> routeObserver =
+    RouteObserver<ModalRoute<void>>();
+
 final appRouter = GoRouter(
   initialLocation: '/',
+  observers: [routeObserver],
   routes: [
     GoRoute(
       path: '/',
@@ -46,6 +51,9 @@ class ScanDetailArgs {
   /// Number of bounding box detections per classId
   final Map<String, int> diseaseDetectionCounts;
 
+  /// All confidences per bounding box per classId
+  final Map<String, List<double>> diseaseAllConfidences;
+
   const ScanDetailArgs({
     this.historyKey,
     required this.imagePath,
@@ -58,6 +66,7 @@ class ScanDetailArgs {
     this.locationName,
     this.diseaseConfidences = const {},
     this.diseaseDetectionCounts = const {},
+    this.diseaseAllConfidences = const {},
   });
 
   /// Buat dari ScanHistoryModel (history)
@@ -74,6 +83,7 @@ class ScanDetailArgs {
       locationName: model.locationName,
       diseaseConfidences: model.diseaseConfidences ?? {},
       diseaseDetectionCounts: model.diseaseDetectionCounts ?? {},
+      diseaseAllConfidences: model.diseaseAllConfidences ?? {},
     );
   }
 }

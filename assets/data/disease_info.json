@@ -7,32 +7,8 @@
       "label_model": "Healthy Leaf",
       "name_id": "Daun Sehat",
       "type": "healthy",
-      "description": "Daun tidak menunjukkan gejala penyakit yang termasuk dalam kelas penelitian. Daun umumnya memiliki warna hijau yang relatif seragam, bentuk normal, dan tidak menunjukkan bercak nekrotik, pola mosaik atau keriting yang abnormal, maupun gejala khas kelas penyakit lainnya.",
-      "symptoms": [
-        "Warna daun relatif hijau dan merata",
-        "Bentuk dan permukaan daun normal",
-        "Tidak terdapat bercak nekrotik atau lesi penyakit yang jelas",
-        "Tidak menunjukkan pola keriting atau deformasi yang tidak normal"
-      ],
-      "care_recommendations": [
-        "Lakukan pemantauan tanaman secara berkala",
-        "Pertahankan kebersihan dan sanitasi lahan",
-        "Gunakan benih atau bibit yang sehat",
-        "Jaga drainase dan sirkulasi udara di sekitar tanaman",
-        "Lakukan pemupukan sesuai kebutuhan tanaman dan kondisi lahan",
-        "Segera periksa perubahan gejala pada daun apabila muncul bercak, perubahan warna, atau deformasi"
-      ],
-      "warning": "Hasil ini menunjukkan daun termasuk kelas Daun Sehat berdasarkan gejala visual yang digunakan oleh model. Pemeriksaan berkala tetap diperlukan karena gejala penyakit dapat muncul pada tahap berikutnya.",
-      "sources": [
-        {
-          "type": "official",
-          "title": "Hama dan Penyakit pada Tanaman Cabai serta Pengendaliannya",
-          "publisher": "Direktorat Jenderal Hortikultura, Kementerian Pertanian RI",
-          "year": 2024,
-          "url": "https://hortikultura.pertanian.go.id/hama-dan-penyakit-pada-tanaman-cabai-serta-pengendaliannya/"
-        }
-      ],
-      "video_sources": []
+      "description": "Daun cabai dalam kondisi sehat, ditandai dengan warna hijau yang relatif merata, bentuk dan permukaan daun normal, serta tidak menunjukkan tanda kerusakan atau gejala penyakit yang terlihat.",
+      "warning": "Hasil ini menunjukkan daun teridentifikasi sebagai Daun Sehat berdasarkan tampilan visual. Kondisi daun dapat berubah sehingga pemantauan tanaman tetap diperlukan."
     },
     {
       "id": "cercospora_leaf_spot",

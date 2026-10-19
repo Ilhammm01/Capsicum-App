@@ -37,6 +37,9 @@ class ScanHistoryModel extends HiveObject {
   @HiveField(10)
   Map<String, int>? diseaseDetectionCounts;
 
+  @HiveField(11)
+  Map<String, List<double>>? diseaseAllConfidences;
+
   ScanHistoryModel({
     required this.imagePath,
     required this.scannedAt,
@@ -49,5 +52,6 @@ class ScanHistoryModel extends HiveObject {
     this.aiRecommendation,
     this.diseaseConfidences,
     this.diseaseDetectionCounts,
+    this.diseaseAllConfidences,
   });
 }

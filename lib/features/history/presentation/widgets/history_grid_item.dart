@@ -99,7 +99,11 @@ class HistoryGridItem extends StatelessWidget {
   Widget _buildThumbnail() {
     final file = File(model.imagePath);
     if (model.imagePath.isNotEmpty && file.existsSync()) {
-      return Image.file(file, fit: BoxFit.cover);
+      return Image.file(
+        file,
+        fit: BoxFit.cover,
+        cacheWidth: 200, // Decode di resolusi kecil untuk hemat RAM
+      );
     }
     return Container(
       color: AppTheme.surfaceVariant,

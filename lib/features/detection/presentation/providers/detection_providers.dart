@@ -106,6 +106,29 @@ final perDiseaseCountProvider = Provider<Map<String, int>>((ref) {
 });
 
 // =============================================
+//  Provider: list of confidences per classId
+// =============================================
+final perDiseaseAllConfidencesProvider =
+    Provider<Map<String, List<double>>>((ref) {
+  final results = ref.watch(detectionResultsProvider);
+  final map = <String, List<double>>{};
+  for (final r in results) {
+    if (map.containsKey(r.classId)) {
+      map[r.classId]!.add(r.confidence);
+    } else {
+      map[r.classId] = [r.confidence];
+    }
+  }
+
+  // Sort descending so highest confidence is first
+  map.forEach((key, list) {
+    list.sort((a, b) => b.compareTo(a));
+  });
+
+  return map;
+});
+
+// =============================================
 //  Provider: status lokasi (GPS aktif / tidak)
 // =============================================
 final locationActiveProvider = StreamProvider.autoDispose<bool>((ref) {

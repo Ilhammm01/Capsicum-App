@@ -387,21 +387,20 @@ class YoloInferenceRepository {
     final swDecode = Stopwatch()..start();
     final numClasses = ModelConstants.numClasses;
     final int numAnchors = outputBuffer.length ~/ (4 + numClasses);
-    final output = List.generate(
-      4 + numClasses,
-      (c) => outputBuffer.sublist(c * numAnchors, (c + 1) * numAnchors),
-    );
-    final normBoxes = <List<double>>[];
+    final scaledBoxes = <Rect>[];
     final scores = <double>[];
     final classIdxList = <int>[];
 
-    // Tahap 1: Ekstrak box & class score
+    // Tahap 1 & 2: Ekstrak box & class score langsung ke scaled box tanpa alokasi intermediate
     double globalMaxScore = 0.0;
+    final double imgW = imageWidth.toDouble();
+    final double imgH = imageHeight.toDouble();
+
     for (int j = 0; j < numAnchors; j++) {
       double maxScore = 0.0;
       int bestClass = 0;
       for (int c = 0; c < numClasses; c++) {
-        final rawVal = output[4 + c][j];
+        final rawVal = outputBuffer[(4 + c) * numAnchors + j];
         final double s = isQuantized
             ? (rawVal - outZeroPoint) * outScale
             : rawVal.toDouble();
@@ -413,10 +412,10 @@ class YoloInferenceRepository {
       if (maxScore > globalMaxScore) globalMaxScore = maxScore;
       if (maxScore < InferenceConfig.confidenceThreshold) continue;
 
-      final rawCx = output[0][j];
-      final rawCy = output[1][j];
-      final rawCw = output[2][j];
-      final rawCh = output[3][j];
+      final rawCx = outputBuffer[0 * numAnchors + j];
+      final rawCy = outputBuffer[1 * numAnchors + j];
+      final rawCw = outputBuffer[2 * numAnchors + j];
+      final rawCh = outputBuffer[3 * numAnchors + j];
 
       final cx =
           (isQuantized ? (rawCx - outZeroPoint) * outScale : rawCx.toDouble()) *
@@ -431,35 +430,20 @@ class YoloInferenceRepository {
           (isQuantized ? (rawCh - outZeroPoint) * outScale : rawCh.toDouble()) *
               640.0;
 
-      normBoxes.add([cx, cy, bw, bh]);
-      scores.add(maxScore);
-      classIdxList.add(bestClass);
+      final rx1 = ((cx - bw / 2 - padLeft) / scale).clamp(0.0, imgW);
+      final ry1 = ((cy - bh / 2 - padTop) / scale).clamp(0.0, imgH);
+      final rx2 = ((cx + bw / 2 - padLeft) / scale).clamp(0.0, imgW);
+      final ry2 = ((cy + bh / 2 - padTop) / scale).clamp(0.0, imgH);
+
+      if (rx2 > rx1 && ry2 > ry1) {
+        scaledBoxes.add(Rect.fromLTRB(rx1, ry1, rx2, ry2));
+        scores.add(maxScore);
+        classIdxList.add(bestClass);
+      }
     }
     swDecode.stop();
     debugPrint(
         '[YOLO-TRACE] Global Max Confidence this frame: ${(globalMaxScore * 100).toStringAsFixed(2)}%');
-
-    // Tahap 2: Bounding Box Transformation
-    final swTransform = Stopwatch()..start();
-    final scaledBoxes = <Rect>[];
-    for (final b in normBoxes) {
-      final cx = b[0], cy = b[1], bw = b[2], bh = b[3];
-      final rx1 =
-          ((cx - bw / 2 - padLeft) / scale).clamp(0.0, imageWidth.toDouble());
-      final ry1 =
-          ((cy - bh / 2 - padTop) / scale).clamp(0.0, imageHeight.toDouble());
-      final rx2 =
-          ((cx + bw / 2 - padLeft) / scale).clamp(0.0, imageWidth.toDouble());
-      final ry2 =
-          ((cy + bh / 2 - padTop) / scale).clamp(0.0, imageHeight.toDouble());
-
-      if (rx2 > rx1 && ry2 > ry1) {
-        scaledBoxes.add(Rect.fromLTRB(rx1, ry1, rx2, ry2));
-      } else {
-        scaledBoxes.add(Rect.zero);
-      }
-    }
-    swTransform.stop();
 
     // Tahap 3: NMS
     final swNms = Stopwatch()..start();
@@ -469,7 +453,7 @@ class YoloInferenceRepository {
     return (
       results,
       swDecode.elapsedMilliseconds,
-      swTransform.elapsedMilliseconds,
+      0, // transform digabung langsung ke tahap decode untuk eliminasi alokasi memori
       swNms.elapsedMilliseconds
     );
   }

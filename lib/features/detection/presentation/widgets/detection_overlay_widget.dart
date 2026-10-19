@@ -162,6 +162,7 @@ class _DetectionPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant _DetectionPainter oldDelegate) {
-    return true;
+    return oldDelegate.results != results ||
+        oldDelegate.previewSize != previewSize;
   }
 }

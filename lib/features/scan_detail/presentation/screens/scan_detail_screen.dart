@@ -6,6 +6,7 @@ import '../../../../app/router.dart';
 import '../../../../app/theme.dart';
 import '../../../../core/utils/date_formatter.dart';
 import '../../../../core/services/location_service.dart';
+import '../../../../core/services/tts_service.dart';
 import '../../../../shared_data/disease_reference/disease_info_repository.dart';
 import '../../../../shared_data/widgets/confirm_dialog.dart';
 import '../../../history/data/repositories/history_repository.dart';
@@ -40,6 +41,12 @@ class _ScanDetailScreenState extends ConsumerState<ScanDetailScreen> {
     if (mounted) setState(() => _repoLoaded = true);
   }
 
+  @override
+  void dispose() {
+    ref.read(ttsServiceProvider).stop();
+    super.dispose();
+  }
+
   Future<void> _deleteScan(ScanDetailArgs args) async {
     final confirmed = await showConfirmDialog(
       context,
@@ -64,6 +71,119 @@ class _ScanDetailScreenState extends ConsumerState<ScanDetailScreen> {
     }
   }
 
+  void _showVoiceSelectionSheet() {
+    final tts = ref.read(ttsServiceProvider);
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: AppTheme.surface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (ctx) {
+        return StatefulBuilder(
+          builder: (ctx, setModalState) {
+            final current = tts.currentVoiceType;
+            return SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Pilihan Karakter Suara',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            color: AppTheme.onSurface,
+                            fontFamily: 'Google Sans',
+                          ),
+                        ),
+                        IconButton(
+                          icon: const Icon(LucideIcons.x, size: 20),
+                          onPressed: () => Navigator.of(ctx).pop(),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+                    const Text(
+                      'Pilih jenis suara asisten untuk pembacaan hasil deteksi:',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: AppTheme.onSurfaceVariant,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    ...TtsVoiceType.values.map((v) {
+                      final isSelected = v == current;
+                      return Container(
+                        margin: const EdgeInsets.only(bottom: 10),
+                        decoration: BoxDecoration(
+                          color: isSelected
+                              ? AppTheme.primaryGreen.withValues(alpha: 0.1)
+                              : AppTheme.surfaceVariant.withValues(alpha: 0.35),
+                          borderRadius: BorderRadius.circular(14),
+                          border: Border.all(
+                            color: isSelected
+                                ? AppTheme.primaryGreen
+                                : Colors.transparent,
+                            width: 1.5,
+                          ),
+                        ),
+                        child: ListTile(
+                          leading: Icon(
+                            v == TtsVoiceType.female
+                                ? LucideIcons.smile
+                                : v == TtsVoiceType.male
+                                    ? LucideIcons.userCheck
+                                    : LucideIcons.volume2,
+                            color: isSelected
+                                ? AppTheme.primaryGreen
+                                : AppTheme.onSurfaceVariant,
+                          ),
+                          title: Text(
+                            v.label,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: isSelected
+                                  ? FontWeight.w700
+                                  : FontWeight.w500,
+                              color: isSelected
+                                  ? AppTheme.primaryGreen
+                                  : AppTheme.onSurface,
+                            ),
+                          ),
+                          trailing: IconButton(
+                            icon: const Icon(LucideIcons.playCircle, size: 22),
+                            color: AppTheme.primaryGreen,
+                            tooltip: 'Putar Contoh',
+                            onPressed: () {
+                              tts.playSample(v);
+                            },
+                          ),
+                          onTap: () async {
+                            await tts.setVoiceType(v);
+                            setModalState(() {});
+                            if (mounted) setState(() {});
+                            tts.playSample(v);
+                          },
+                        ),
+                      );
+                    }),
+                    const SizedBox(height: 8),
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final args = widget.args;
@@ -79,6 +199,27 @@ class _ScanDetailScreenState extends ConsumerState<ScanDetailScreen> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         actions: [
+          if (args != null) ...[
+            IconButton(
+              icon: const Icon(LucideIcons.volume2, size: 22),
+              color: AppTheme.primaryGreen,
+              tooltip: 'Dengarkan Hasil Suara',
+              onPressed: () {
+                ref.read(ttsServiceProvider).speakDetectionResult(
+                      diseaseIds: args.detectedDiseaseIds,
+                      severityLevel: args.severityLevel,
+                      diseaseConfidences: args.diseaseConfidences,
+                      averageConfidence: args.averageConfidence,
+                    );
+              },
+            ),
+            IconButton(
+              icon: const Icon(LucideIcons.slidersHorizontal, size: 20),
+              color: AppTheme.onSurfaceVariant,
+              tooltip: 'Pilih Karakter Suara',
+              onPressed: _showVoiceSelectionSheet,
+            ),
+          ],
           if (args != null && args.historyKey != null)
             IconButton(
               icon: const Icon(LucideIcons.trash2, size: 22),
@@ -146,16 +287,21 @@ class _ScanDetailScreenState extends ConsumerState<ScanDetailScreen> {
                     const SizedBox(height: 12),
                     DiseaseListTile(
                       disease: d,
-                      confidence: args.diseaseConfidences[d.id],
+                      confidences: args.diseaseAllConfidences[d.id] ??
+                          (args.diseaseConfidences[d.id] != null
+                              ? [args.diseaseConfidences[d.id]!]
+                              : null),
                       detectionCount: args.diseaseDetectionCounts[d.id],
                     ),
                     const SizedBox(height: 20),
 
                     // === REKOMENDASI ===
-                    _SectionHeader(title: 'Rekomendasi Perawatan'),
-                    const SizedBox(height: 12),
-                    RecommendationListTile(disease: d),
-                    const SizedBox(height: 24),
+                    if (d.type != 'healthy') ...[
+                      _SectionHeader(title: 'Rekomendasi Perawatan'),
+                      const SizedBox(height: 12),
+                      RecommendationListTile(disease: d),
+                      const SizedBox(height: 24),
+                    ],
 
                     // === PRODUK REKOMENDASI ===
                     if (d.produk.isNotEmpty) ...[
@@ -227,15 +373,7 @@ class _ScanDetailScreenState extends ConsumerState<ScanDetailScreen> {
                 border: Border.all(
                   color: isSelected ? AppTheme.primaryGreen : AppTheme.divider,
                 ),
-                boxShadow: isSelected
-                    ? [
-                        BoxShadow(
-                          color: AppTheme.primaryGreen.withValues(alpha: 0.3),
-                          blurRadius: 8,
-                          offset: const Offset(0, 4),
-                        )
-                      ]
-                    : [],
+                boxShadow: const [],
               ),
               child: Row(
                 children: [
@@ -332,7 +470,11 @@ class _ScanDetailScreenState extends ConsumerState<ScanDetailScreen> {
         borderRadius: BorderRadius.circular(16),
         child: AspectRatio(
           aspectRatio: 4 / 3,
-          child: Image.file(File(imagePath), fit: BoxFit.cover),
+          child: Image.file(
+            File(imagePath),
+            fit: BoxFit.cover,
+            cacheWidth: 1080,
+          ),
         ),
       ),
     );
@@ -353,18 +495,18 @@ class _ScanDetailScreenState extends ConsumerState<ScanDetailScreen> {
       child: Column(
         children: [
           _MetaRow(
-            icon: LucideIcons.clock,
+            icon: LucideIcons.calendarClock,
             label: DateFormatter.formatFull(args.scannedAt),
           ),
           if (args.locationName != null) ...[
             const SizedBox(height: 8),
             _MetaRow(
-              icon: LucideIcons.mapPin,
+              icon: LucideIcons.mapPinned,
               label: args.locationName!,
             ),
           ],
           const SizedBox(height: 8),
-          _MetaRow(icon: LucideIcons.crosshair, label: latlongStr),
+          _MetaRow(icon: LucideIcons.compass, label: latlongStr),
         ],
       ),
     );

@@ -221,6 +221,7 @@ class _GalleryCard extends StatelessWidget {
                 file,
                 fit: BoxFit.cover,
                 width: double.infinity,
+                cacheWidth: 200, // Decode di resolusi kecil untuk hemat RAM
               ),
             ),
           ),

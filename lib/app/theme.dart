@@ -10,7 +10,7 @@ class AppTheme {
 
   // === WARNA SEVERITY ===
   static const Color severityRingan = Color(0xFF2D9B4B); // Hijau
-  static const Color severitySedang = Color(0xFFE8A020); // Kuning-Oranye
+  static const Color severitySedang = Color(0xFFECB91E); // Kuning-Oranye
   static const Color severityBerat = Color(0xFFD93025); // Merah
 
   // === WARNA NETRAL ===
@@ -29,79 +29,94 @@ class AppTheme {
 
   // === TIPOGRAFI ===
   // Menggunakan Google Fonts
-  static TextTheme get _textTheme => ThemeData.light().textTheme.apply(fontFamily: 'Google Sans').copyWith(
-        displayLarge: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 32,
-          fontWeight: FontWeight.w700,
-          color: onSurface,
-          letterSpacing: -0.5,
-        ),
-        displayMedium: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 28,
-          fontWeight: FontWeight.w700,
-          color: onSurface,
-        ),
-        headlineLarge: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 24,
-          fontWeight: FontWeight.w700,
-          color: onSurface,
-        ),
-        headlineMedium: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-          color: onSurface,
-        ),
-        headlineSmall: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-          color: onSurface,
-        ),
-        titleLarge: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-          color: onSurface,
-        ),
-        titleMedium: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-          color: onSurface,
-        ),
-        titleSmall: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 12,
-          fontWeight: FontWeight.w500,
-          color: onSurfaceVariant,
-        ),
-        bodyLarge: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-          color: onSurface,
-        ),
-        bodyMedium: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-          color: onSurface,
-        ),
-        bodySmall: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 12,
-          fontWeight: FontWeight.w400,
-          color: onSurfaceVariant,
-        ),
-        labelLarge: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
-          color: onSurface,
-        ),
-        labelMedium: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 12,
-          fontWeight: FontWeight.w500,
-          color: onSurface,
-        ),
-        labelSmall: TextStyle(fontFamily: 'Google Sans', 
-          fontSize: 10,
-          fontWeight: FontWeight.w500,
-          color: onSurfaceVariant,
-        ),
-      );
+  static TextTheme get _textTheme =>
+      ThemeData.light().textTheme.apply(fontFamily: 'Google Sans').copyWith(
+            displayLarge: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 32,
+              fontWeight: FontWeight.w700,
+              color: onSurface,
+              letterSpacing: -0.5,
+            ),
+            displayMedium: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 28,
+              fontWeight: FontWeight.w700,
+              color: onSurface,
+            ),
+            headlineLarge: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+              color: onSurface,
+            ),
+            headlineMedium: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: onSurface,
+            ),
+            headlineSmall: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: onSurface,
+            ),
+            titleLarge: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: onSurface,
+            ),
+            titleMedium: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: onSurface,
+            ),
+            titleSmall: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+              color: onSurfaceVariant,
+            ),
+            bodyLarge: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+              color: onSurface,
+            ),
+            bodyMedium: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: onSurface,
+            ),
+            bodySmall: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: onSurfaceVariant,
+            ),
+            labelLarge: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+              color: onSurface,
+            ),
+            labelMedium: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+              color: onSurface,
+            ),
+            labelSmall: TextStyle(
+              fontFamily: 'Google Sans',
+              fontSize: 10,
+              fontWeight: FontWeight.w500,
+              color: onSurfaceVariant,
+            ),
+          );
 
   static ThemeData get lightTheme {
     return ThemeData(
@@ -125,7 +140,8 @@ class AppTheme {
         scrolledUnderElevation: 1,
         shadowColor: divider,
         centerTitle: false,
-        titleTextStyle: TextStyle(fontFamily: 'Google Sans', 
+        titleTextStyle: TextStyle(
+          fontFamily: 'Google Sans',
           fontSize: 18,
           fontWeight: FontWeight.w600,
           color: onSurface,
@@ -149,7 +165,8 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          textStyle: TextStyle(fontFamily: 'Google Sans', 
+          textStyle: TextStyle(
+            fontFamily: 'Google Sans',
             fontSize: 14,
             fontWeight: FontWeight.w600,
           ),
@@ -180,7 +197,7 @@ class AppTheme {
       case 'ringan':
         return severityRingan.withValues(alpha: 0.1);
       case 'sedang':
-        return severitySedang.withValues(alpha: 0.1);
+        return const Color(0xFFFFFBD8);
       case 'berat':
         return severityBerat.withValues(alpha: 0.1);
       default:

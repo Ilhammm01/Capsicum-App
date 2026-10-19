@@ -17,7 +17,8 @@
         android:label="Capsicum"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon"
-        android:requestLegacyExternalStorage="true">
+        android:requestLegacyExternalStorage="true"
+        android:largeHeap="true">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -49,6 +50,10 @@
         <intent>
             <action android:name="android.intent.action.SEND"/>
             <data android:mimeType="image/*"/>
+        </intent>
+        <!-- For flutter_tts -->
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
         </intent>
     </queries>
 </manifest>

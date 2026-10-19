@@ -11,6 +11,7 @@ import '../widgets/detection_overlay_widget.dart';
 import '../widgets/detection_info_panel.dart';
 
 import '../widgets/bottom_nav_bar.dart';
+import '../../../../core/constants/app_constants.dart';
 import '../../../../core/services/permission_service.dart';
 import '../../../../core/services/location_service.dart';
 import '../../../../core/services/image_capture_service.dart';
@@ -18,6 +19,7 @@ import '../../../../features/history/data/models/scan_history_model.dart';
 import '../../../../features/history/data/repositories/history_repository.dart';
 import '../../../../app/router.dart';
 import '../../../../app/theme.dart';
+import '../../../../core/services/tts_service.dart';
 
 class CameraScreen extends ConsumerStatefulWidget {
   const CameraScreen({super.key});
@@ -27,7 +29,7 @@ class CameraScreen extends ConsumerStatefulWidget {
 }
 
 class _CameraScreenState extends ConsumerState<CameraScreen>
-    with WidgetsBindingObserver {
+    with WidgetsBindingObserver, RouteAware {
   CameraController? _controller;
   List<CameraDescription> _cameras = [];
 
@@ -36,6 +38,9 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
   bool _torchOn = false;
   bool _isSaving = false;
   bool _showCaptureOverlay = false;
+  bool _isInferencing = false;
+  bool _isStreaming = false;
+  DateTime _lastInferenceTime = DateTime(2000); // epoch awal agar frame pertama langsung diproses
   Completer<void>? _captureCompleter;
 
   final GlobalKey _cameraKey = GlobalKey();
@@ -46,6 +51,28 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _initAll();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (route != null) {
+      routeObserver.subscribe(this, route);
+    }
+  }
+
+  @override
+  void didPushNext() {
+    // Layar lain dibuka di atas layar kamera (misal ScanDetail / History)
+    // Hentikan stream dan deteksi agar tidak membebani CPU/RAM di background
+    _stopStreaming();
+  }
+
+  @override
+  void didPopNext() {
+    // Pengguna kembali ke layar kamera — aktifkan kembali stream kamera
+    _startStreaming();
   }
 
   Future<void> _initAll() async {
@@ -78,15 +105,8 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
       if (!mounted) return;
       setState(() => _cameraInitialized = true);
 
-      // Mulai image stream — simpan frame langsung di-pass jika butuh inference
-      await _controller!.startImageStream((frame) {
-        if (_captureCompleter != null && !_captureCompleter!.isCompleted) {
-          final completer = _captureCompleter;
-          _runInferenceOnFrame(frame).then((_) {
-            if (!completer!.isCompleted) completer.complete();
-          });
-        }
-      });
+      // Mulai image stream untuk deteksi
+      await _startStreaming();
 
       // Update preview size for severity calculation
       final previewSize = _controller?.value.previewSize;
@@ -97,6 +117,60 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
       debugPrint('Camera init error: $e');
       if (mounted) setState(() => _permissionDenied = true);
     }
+  }
+
+  /// Mulai penerimaan frame kamera untuk inference
+  Future<void> _startStreaming() async {
+    if (_controller == null || !_cameraInitialized || _isStreaming) return;
+    try {
+      if (_controller!.value.isStreamingImages) return;
+      _isStreaming = true;
+      await _controller!.startImageStream(_onCameraFrame);
+      debugPrint('[Camera] Stream started');
+    } catch (e) {
+      debugPrint('[Camera] startImageStream error: $e');
+    }
+  }
+
+  /// Hentikan penerimaan frame kamera dan inference agar background tidak berat
+  Future<void> _stopStreaming() async {
+    _isStreaming = false;
+    if (_controller == null || !_cameraInitialized) return;
+    try {
+      if (_controller!.value.isStreamingImages) {
+        await _controller!.stopImageStream();
+        debugPrint('[Camera] Stream stopped');
+      }
+    } catch (e) {
+      debugPrint('[Camera] stopImageStream error: $e');
+    }
+  }
+
+  void _onCameraFrame(CameraImage frame) {
+    if (!_isStreaming || !mounted) return;
+
+    // === Mode Capture: prioritas tinggi, langsung jalankan inference ===
+    if (_captureCompleter != null && !_captureCompleter!.isCompleted) {
+      final completer = _captureCompleter;
+      _runInferenceOnFrame(frame).then((_) {
+        if (!completer!.isCompleted) completer.complete();
+      });
+      return;
+    }
+
+    // === Mode Real-time: throttle agar CPU tidak overload ===
+    if (_isInferencing) return;
+    final now = DateTime.now();
+    if (now.difference(_lastInferenceTime).inMilliseconds <
+        InferenceConfig.throttleMs) {
+      return;
+    }
+
+    _isInferencing = true;
+    _lastInferenceTime = now;
+    _runInferenceOnFrame(frame).whenComplete(() {
+      _isInferencing = false;
+    });
   }
 
   Future<void> _initLocation() async {
@@ -189,8 +263,12 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
     );
   }
 
-  void _showTipsDialog() {
-    showDialog(
+  void _showTipsDialog() async {
+    final wasStreaming = _isStreaming;
+    if (wasStreaming) await _stopStreaming();
+    if (!mounted) return;
+
+    await showDialog(
       context: context,
       builder: (ctx) => Dialog(
         backgroundColor: AppTheme.surface,
@@ -249,6 +327,7 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
         ),
       ),
     );
+    if (mounted && wasStreaming) await _startStreaming();
   }
 
   Widget _buildTipItem(String number, String text) {
@@ -387,6 +466,7 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
     final diseaseIds = ref.read(detectedDiseaseIdsProvider);
     final diseaseConfs = ref.read(perDiseaseConfidenceProvider);
     final diseaseCounts = ref.read(perDiseaseCountProvider);
+    final diseaseAllConfs = ref.read(perDiseaseAllConfidencesProvider);
     final loc = ref.read(currentLocationProvider);
     final locName = ref.read(currentLocationNameProvider);
 
@@ -405,6 +485,9 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
     // Clear detection results immediately after capture so camera screen is clean
     ref.read(detectionResultsProvider.notifier).state = [];
 
+    // Hentikan stream kamera dan inference SEGERA agar tidak berjalan di background
+    await _stopStreaming();
+
     if (mounted) {
       setState(() {
         _showCaptureOverlay = false;
@@ -412,7 +495,10 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
       });
     }
 
-    if (path == null) return;
+    if (path == null) {
+      if (mounted) await _startStreaming();
+      return;
+    }
 
     final entry = ScanHistoryModel(
       imagePath: path,
@@ -425,11 +511,20 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
       averageConfidence: avgConf,
       diseaseConfidences: diseaseConfs,
       diseaseDetectionCounts: diseaseCounts,
+      diseaseAllConfidences: diseaseAllConfs,
     );
     final historyKey = await HistoryRepository.addScan(entry);
 
     if (mounted) {
-      context.pushNamed(
+      // Ucapkan hasil deteksi penyakit melalui suara (TTS)
+      ref.read(ttsServiceProvider).speakDetectionResult(
+            diseaseIds: diseaseIds,
+            severityLevel: severity,
+            diseaseConfidences: diseaseConfs,
+            averageConfidence: avgConf,
+          );
+
+      await context.pushNamed(
         'scanDetail',
         extra: ScanDetailArgs(
           historyKey: historyKey,
@@ -443,13 +538,24 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
           locationName: locName,
           diseaseConfidences: diseaseConfs,
           diseaseDetectionCounts: diseaseCounts,
+          diseaseAllConfidences: diseaseAllConfs,
         ),
       );
+
+      // Setelah user kembali dari halaman detail scan, aktifkan kembali stream kamera
+      if (mounted) {
+        await _startStreaming();
+      }
     }
   }
 
-  void _onHistoryPressed() {
-    context.pushNamed('history');
+  Future<void> _onHistoryPressed() async {
+    await _stopStreaming();
+    if (!mounted) return;
+    await context.pushNamed('history');
+    if (mounted) {
+      await _startStreaming();
+    }
   }
 
   Future<void> _toggleTorch() async {
@@ -462,6 +568,7 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.paused) {
       // App masuk background — hentikan stream & inference
+      _isStreaming = false;
       _cameraInitialized = false;
       _controller?.stopImageStream().catchError((_) {});
       _controller?.dispose();
@@ -482,8 +589,10 @@ class _CameraScreenState extends ConsumerState<CameraScreen>
 
   @override
   void dispose() {
+    routeObserver.unsubscribe(this);
     WidgetsBinding.instance.removeObserver(this);
     _locationSub?.cancel();
+    _isStreaming = false;
     _controller?.stopImageStream().catchError((_) {});
     _controller?.dispose();
     super.dispose();

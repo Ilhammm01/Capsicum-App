@@ -28,13 +28,15 @@ class ScanHistoryModelAdapter extends TypeAdapter<ScanHistoryModel> {
       aiRecommendation: fields[8] as String?,
       diseaseConfidences: (fields[9] as Map?)?.cast<String, double>(),
       diseaseDetectionCounts: (fields[10] as Map?)?.cast<String, int>(),
+      diseaseAllConfidences: (fields[11] as Map?)?.map((dynamic k, dynamic v) =>
+          MapEntry(k as String, (v as List).cast<double>())),
     );
   }
 
   @override
   void write(BinaryWriter writer, ScanHistoryModel obj) {
     writer
-      ..writeByte(11)
+      ..writeByte(12)
       ..writeByte(0)
       ..write(obj.imagePath)
       ..writeByte(1)
@@ -56,7 +58,9 @@ class ScanHistoryModelAdapter extends TypeAdapter<ScanHistoryModel> {
       ..writeByte(9)
       ..write(obj.diseaseConfidences)
       ..writeByte(10)
-      ..write(obj.diseaseDetectionCounts);
+      ..write(obj.diseaseDetectionCounts)
+      ..writeByte(11)
+      ..write(obj.diseaseAllConfidences);
   }
 
   @override
